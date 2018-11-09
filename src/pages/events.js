@@ -9,7 +9,7 @@ const EventPage = ({ data }) => (
       <div key={event.id} className="showcase__item">
         <figure className="card">
           <Link to={`/events/${event.slug}`} className="card__image">
-            <Img sizes={event.coverImage.sizes} />
+            {/* <Img sizes={event.eventImage.sizes} /> */}
           </Link>
           <figcaption className="card__caption">
             <h6 className="card__title">
@@ -25,15 +25,21 @@ const EventPage = ({ data }) => (
   </Masonry>
 );
 
-export default IndexPage;
+export default EventPage;
 
 export const query = graphql`
   query EventQuery {
-    allDatoCmsEvent(sort: { fields: [position], order: ASC }) {
+    allDatoCmsEvent {
       edges {
         node {
           id
           eventTitle
+          eventImage {
+            url
+            sizes(maxWidth: 600, imgixParams: { fm: "jpg", auto: "compress" }) {
+              ...GatsbyDatoCmsSizes
+            }
+          }
               eventDate
               eventLocation {
                 latitude

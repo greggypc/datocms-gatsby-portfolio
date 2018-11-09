@@ -27,9 +27,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
       });
       resolve();
     });
-  });
 
-  return new Promise((resolve, reject) => {
     graphql(`
       {
         allDatoCmsEvent {
