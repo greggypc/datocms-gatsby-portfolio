@@ -9,7 +9,7 @@ const EventPage = ({ data }) => (
       <div key={event.id} className="showcase__item">
         <figure className="card">
           <Link to={`/events/${event.slug}`} className="card__image">
-            {/* <Img sizes={event.eventImage.sizes} /> */}
+            <Img sizes={event.eventImage.sizes} />
           </Link>
           <figcaption className="card__caption">
             <h6 className="card__title">
