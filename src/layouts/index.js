@@ -1,16 +1,13 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Link from 'gatsby-link'
-import { HelmetDatoCms } from 'gatsby-source-datocms'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Link from 'gatsby-link';
+import { HelmetDatoCms } from 'gatsby-source-datocms';
 
-import '../styles/index.sass'
+import '../styles/index.sass';
 
 const TemplateWrapper = ({ children, data }) => (
   <div className="container">
-    <HelmetDatoCms
-      favicon={data.datoCmsSite.faviconMetaTags}
-      seo={data.datoCmsHome.seoMetaTags}
-    />
+    <HelmetDatoCms favicon={data.datoCmsSite.faviconMetaTags} seo={data.datoCmsHome.seoMetaTags} />
     <div className="container__sidebar">
       <div className="sidebar">
         <h6 className="sidebar__title">
@@ -19,7 +16,7 @@ const TemplateWrapper = ({ children, data }) => (
         <div
           className="sidebar__intro"
           dangerouslySetInnerHTML={{
-            __html: data.datoCmsHome.introTextNode.childMarkdownRemark.html,
+            __html: data.datoCmsHome.introTextNode.childMarkdownRemark.html
           }}
         />
         <ul className="sidebar__menu">
@@ -28,6 +25,9 @@ const TemplateWrapper = ({ children, data }) => (
           </li>
           <li>
             <Link to="/about">About</Link>
+          </li>
+          <li>
+            <Link to="/event">Events</Link>
           </li>
         </ul>
         <p className="sidebar__social">
@@ -57,13 +57,13 @@ const TemplateWrapper = ({ children, data }) => (
       {children()}
     </div>
   </div>
-)
+);
 
 TemplateWrapper.propTypes = {
-  children: PropTypes.func,
-}
+  children: PropTypes.func
+};
 
-export default TemplateWrapper
+export default TemplateWrapper;
 
 export const query = graphql`
   query LayoutQuery {
@@ -95,4 +95,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;
